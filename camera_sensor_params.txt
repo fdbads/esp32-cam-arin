@@ -1,0 +1,33 @@
+/*
+Bu parametreler kameranın içindeki sensörün ayarlarını yapmak için.
+Sanırım bazılarının etki göstermesi kısa bir gecikme ile oluyor.
+Sanırım bazıları otomatik olarak ayarlanmaya da çalışılıyor, yani çakışan durumlar olabilir.
+
+"espcam" librarysinin dependencylerinden olan "sensor" librarysine dahil bunlar
+Bunları internetten bir yerden buldum ama hatırlamıyorum
+
+baştaki "s", sensörün pointerı olması lazım
+*/
+
+set_brightness(s, -2);     // -2 to 2
+set_contrast(s, 1);       // -2 to 2
+set_saturation(s, 0);     // -2 to 2
+set_special_effect(s, 1); // 0 to 6 (0 - No Effect, 1 - Negative, 2 - Grayscale, 3 - Red Tint, 4 - Green Tint, 5 - Blue Tint, 6 - Sepia)
+s->set_whitebal(s, 1);       // 0 = disable , 1 = enable
+s->set_awb_gain(s, 1);       // 0 = disable , 1 = enable
+s->set_wb_mode(s, 0);        // 0 to 4 - if awb_gain enabled (0 - Auto, 1 - Sunny, 2 - Cloudy, 3 - Office, 4 - Home)
+s->set_exposure_ctrl(s, 1);  // 0 = disable , 1 = enable
+set_aec2(s, 1);           // 0 = disable , 1 = enable
+set_ae_level(s, 0);       // -2 to 2
+set_aec_value(s, 300);    // 0 to 1200
+set_gain_ctrl(s, 1);      // 0 = disable , 1 = enable
+set_agc_gain(s, 0);       // 0 to 30
+set_gainceiling(s, (gainceiling_t)0);  // 0 to 6 //"gainceiling_t" sensor librarysi içinde bir enum
+set_bpc(s, 0);            // 0 = disable , 1 = enable
+set_wpc(s, 1);            // 0 = disable , 1 = enable
+set_raw_gma(s, 1);        // 0 = disable , 1 = enable
+set_lenc(s, 1);           // 0 = disable , 1 = enable
+set_hmirror(s, 0);        // 0 = disable , 1 = enable
+set_vflip(s, 0);          // 0 = disable , 1 = enable
+set_dcw(s, 1);            // 0 = disable , 1 = enable
+set_colorbar(s, 1);       // 0 = disable , 1 = enable

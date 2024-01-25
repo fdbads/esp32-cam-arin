@@ -1,0 +1,91 @@
+19: brightness (br=-2 or -1 is determined)
+
+20: contrast (cnt=0 or 1 is determined)
+
+21: saturation (failed)
+
+22: saturation (sat>=1 increases capture time drastically)(sat=0 is determined)
+
+23: white balance (failed,didnt go from off to on)
+
+24: dont remember
+
+25: white balance (wb=1 is determined)
+
+26: auto white balance gain (one burst failed)
+
+27: auto white balance gain (awbg=1 is determined, but 
+    turning it on causes some delay initially)
+
+28: white balance mode (wbm=0 (auto) is determined)
+
+29: exposure_control (ec=1 is determined)
+
+30: aec2(aec2=1 is determined)
+
+31: ae_level ("dont set" is determined)
+
+32: no change after 30->31 (in low light capture fails, possible cause "aec2")
+
+33: exposure_control is disabled
+
+34: low light makes the captures fail, removing parameters until low light is handled
+
+35: same
+
+36: only brightness=0 is left
+
+37: external power supply connected
+
+38: same
+
+39: all previous parameters enabled (crashed and resetted but second run was fine)
+
+40:?
+
+41: single-shot
+
+42: all params deleted
+
+43: wb=1 awbg=1 wbm=0
+
+44: ec=1
+
+45: lens correction = 1 | colorbar = 1 (colorbar is trash, only useful for indicating error)
+
+46: colorbar rem (lens correction does not do anything)
+
+47: long
+    s->set_contrast(s, 1);       // -2 to 2
+    s->set_whitebal(s, 1);       // 0 = disable , 1 = enable
+    s->set_awb_gain(s, 1);       // 0 = disable , 1 = enable
+    s->set_wb_mode(s, 0);        // 0 to 4 - if awb_gain enabled (0 - Auto, 1 - Sunny, 2 - Cloudy, 3 - Office, 4 - Home)
+    s->set_exposure_ctrl(s, 1);  // 0 = disable , 1 = enable
+    s->set_gain_ctrl(s, 1);      // 0 = disable , 1 = enable
+    s->set_bpc(s, 1);            // 0 = disable , 1 = enable
+    s->set_wpc(s, 1);            // 0 = disable , 1 = enable
+    s->set_raw_gma(s, 1);        // 0 = disable , 1 = enable 
+
+48: disabled raw gamma correction
+
+49: s->set_agc_gain(s, 20);       // 0 to 30
+
+50: long 
+
+51: s->set_agc_gain(s, 30) (started failing capturing)
+
+No save: s->set_agc_gain(s, 0) (fails)
+
+52: set_agc_gain changes over time (near 30, low light fails)
+
+53: set_agc_gain changes over time 0 to 30 (low light still fails)
+
+54: set_agc_gain changes over time 0 to 5 (stick to agc not set)
+
+55: set_agc_gain removed (low light still fails, supply connected,
+    brightness is flickering all over the place, may be related to
+    the lights being powered by 60Hz mains power)
+
+No save: board died while trying to power externally through Vin, dont do that.
+
+56: new board
